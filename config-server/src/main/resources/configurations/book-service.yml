@@ -7,12 +7,21 @@ spring:
       host: localhost
       port: 27017
       database: book-service
+      
   # GraphQL API URL
   graphql:
     path: /api/graphql
 
 server:
   port: 8081
+
+# S3 Configuration
+app:
+  book:
+    image:
+      bucket: bookstore-book-images-dev
+      base-url: https://bookstore-book-images-dev.s3.us-east-1.amazonaws.com
+      folder: books
 
 eureka:
   client:

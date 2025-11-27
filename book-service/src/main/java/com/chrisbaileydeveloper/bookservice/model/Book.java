@@ -21,4 +21,5 @@ public class Book {
     private String name;
     private String description;
     private Double price;
+    private String imageUrl; //New field for image url
 }

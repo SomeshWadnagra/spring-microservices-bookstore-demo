@@ -10,8 +10,13 @@ spring:
         - id: book-service
           uri: lb://book-service
           predicates:
-             - Path=/api/graphql/**
+            - Path=/api/graphql/**
 
+        - id: book-service-rest
+          uri: lb://book-service
+          predicates:
+            - Path=/api/books/**    
+             
         - id: order-service
           uri: lb://order-service
           predicates:

@@ -16,4 +16,5 @@ public class BookResponse {
     private String name;
     private String description;
     private Double price;
+    private String imageUrl; //New Field for Image URL
 }

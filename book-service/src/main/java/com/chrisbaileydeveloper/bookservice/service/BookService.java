@@ -16,17 +16,35 @@ import java.util.List;
 public class BookService {
 
     private final BookRepository bookRepository;
-
+/* 
     public void createBook(BookRequest bookRequest) {
         Book book = Book.builder()
                 .name(bookRequest.getName())
                 .description(bookRequest.getDescription())
                 .price(bookRequest.getPrice())
+                .imageUrl(bookRequest.getImageUrl()) //New for Image upload in S3
                 .build();
 
         bookRepository.save(book);
         log.info("Book has been saved with id: {}", book.getId());
     }
+ */
+
+    //Updated createBook method to return BookResponse
+    public BookResponse createBook(BookRequest bookRequest) {
+        Book book = Book.builder()
+                .name(bookRequest.getName())
+                .description(bookRequest.getDescription())
+                .price(bookRequest.getPrice())
+                .imageUrl(bookRequest.getImageUrl()) // New for Image upload in S3
+                .build();
+
+        bookRepository.save(book);
+        log.info("Book has been saved with id: {}", book.getId());
+
+    return mapToBookResponse(book);  // return DTO instead of void
+}
+
 
     public List<BookResponse> getAllBooks() {
         List<Book> books = bookRepository.findAll();
@@ -51,6 +69,7 @@ public class BookService {
                 .name(book.getName())
                 .description(book.getDescription())
                 .price(book.getPrice())
+                .imageUrl(book.getImageUrl()) //New for Image upload in S3
                 .build();
     }
 }

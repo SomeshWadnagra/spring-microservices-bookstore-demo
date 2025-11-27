@@ -151,6 +151,9 @@ services:
     image: microservices-bookstore/book-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_VALUE}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_VALUE}
+      - AWS_REGION=${AWS_REGION_VALUE}
     depends_on:
       - api-gateway
     profiles:

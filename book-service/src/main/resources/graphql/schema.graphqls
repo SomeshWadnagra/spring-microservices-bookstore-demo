@@ -12,10 +12,12 @@ type BookResponse {
     name: String!
     description: String
     price: Float
+    imageUrl: String
 }
 
 input BookRequest {
     name: String!
     description: String
     price: Float
+    imageUrl: String
 }
